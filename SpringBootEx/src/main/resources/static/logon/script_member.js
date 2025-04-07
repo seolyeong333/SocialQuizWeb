@@ -20,12 +20,12 @@ let erroralert = ( msg ) => {
 }
 	
 let loginCheck = ( event ) => {
-	let user_id = document.querySelector( "input[name='user_id']" );
+	let userId = document.querySelector( "input[name='userId']" );
 	let passwd = document.querySelector( "input[name='passwd']" );
-	if( ! user_id.value ) {
+	if( ! userId.value ) {
 		alert( msg_user_id );
 		event.preventDefault();
-		user_id.focus();
+		userId.focus();
 	} else if( ! passwd.value ) {
 		alert( msg_passwd );
 		event.preventDefault();
@@ -51,12 +51,12 @@ window.addEventListener(
 				"submit",
 				( event ) => {										
 					loginCheck( event );
-					let user_id = document.querySelector( "input[name='user_id']" );
+					let userId = document.querySelector( "input[name='userId']" );
 					let passwd = document.querySelector( "input[name='passwd']" );
 					let repasswd = document.querySelector( "input[name='repasswd']" );
 					let nickname = document.querySelector( "input[name='nickname']" );	
 					let email = document.querySelector( "input[name='email']" );
-					if( user_id.value && passwd.value ) {						
+					if( userId.value && passwd.value ) {						
 						if( passwd.value != repasswd.value ) {
 							alert( msg_repasswd );
 							event.preventDefault();	
@@ -86,12 +86,12 @@ window.addEventListener(
 			confirm.addEventListener(
 				"click",
 				( event ) => {
-					let user_id = document.querySelector( "input[name='id']" );
-					if( ! user_id.value ) {
+					let userId = document.querySelector( "input[name='id']" );
+					if( ! userId.value ) {
 						alert( msg_id );
-						user_id.focus();
+						userId.focus();
 					} else {
-						let url = "logonconfirmid?id=" + user_id.value;	
+						let url = "logonconfirmid?id=" + userId.value;	
 						open( url, "confirm", "scrollbar=no, satusbar=no, titlebar=no, menubar=no, width=400px, height=250px" );
 					}						
 				}			
@@ -104,11 +104,11 @@ window.addEventListener(
 			confirmform.addEventListener(
 				"submit",
 				( event ) => {
-					let user_id = document.querySelector( "input[name='id']" );
-					if( ! user_id.value ) {
+					let userId = document.querySelector( "input[name='id']" );
+					if( ! userId.value ) {
 						alert( msg_id );
 						event.preventDefault();
-						user_id.focus();
+						userId.focus();
 					}
 				}
 			);	
@@ -164,8 +164,8 @@ window.addEventListener(
 	}	
 );
 
-let setuser_id = ( user_id ) => {
-	opener.document.inputform.id.value = user_id;
+let setuser_id = ( userId ) => {
+	opener.document.inputform.id.value = userId;
 	opener.document.inputform.confirm.value = "1";
 	window.close();			
 }	

@@ -22,9 +22,9 @@
 	<!-- 글쓰기 -->
 	<insert id="insertArticle" parameterType="board.BoardDataBean">
 		INSERT INTO notices (
-			user_id, subject, reg_date, ref, re_step, re_level, content, readcount, num
+			userId, subject, reg_date, ref, re_step, re_level, content, readcount, num
 		) VALUES (
-			#{user_id}, #{subject}, #{reg_date}, #{ref}, #{re_step}, #{re_level}, #{content}, 0, seq_notices.NEXTVAL
+			#{userId}, #{subject}, #{reg_date}, #{ref}, #{re_step}, #{re_level}, #{content}, 0, seq_notices.NEXTVAL
 		)
 	</insert>
 
@@ -32,7 +32,7 @@
 	<select id="getArticles" parameterType="java.util.Map" resultType="board.BoardDataBean">
 		SELECT * FROM (
 			SELECT ROWNUM rnum, A.* FROM (
-				SELECT num, user_id, subject, reg_date, readcount, ref, re_step, re_level, content
+				SELECT num, user_id AS userId, subject, reg_date, readcount, ref, re_step, re_level, content
 				FROM notices
 				ORDER BY ref DESC, re_step ASC
 			) A
@@ -43,7 +43,7 @@
 
 	<!-- 글 상세 보기 -->
 	<select id="getArticle" parameterType="int" resultType="board.BoardDataBean">
-		SELECT num, user_id, subject, reg_date, readcount, ref, re_step, re_level, content
+		SELECT num, user_id AS userId, subject, reg_date, readcount, ref, re_step, re_level, content
 		FROM notices
 		WHERE num = #{num}
 	</select>

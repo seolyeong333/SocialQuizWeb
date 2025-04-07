@@ -59,7 +59,7 @@ public class BoardDBBean {
 	public int modifyArticle(BoardDataBean boardDto, String loginUserId) {
 	    BoardDataBean origin = getArticle(boardDto.getNum());
 
-	    if (!origin.getUser_id().equals(loginUserId)) {
+	    if (!origin.getUserId().equals(loginUserId)) {
 	        return -2; // 권한 없음
 	    }
 
@@ -72,7 +72,7 @@ public class BoardDBBean {
 	    BoardDataBean boardDto = getArticle(num);
 
 	    // 작성자 검증
-	    if (!boardDto.getUser_id().equals(loginUserId)) {
+	    if (!boardDto.getUserId().equals(loginUserId)) {
 	        return -2; // 권한 없음
 	    }
 

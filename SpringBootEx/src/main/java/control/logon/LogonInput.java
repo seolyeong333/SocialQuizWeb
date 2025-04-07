@@ -25,11 +25,11 @@ public class LogonInput {
 		return "member/inputForm";
 	}
 	@PostMapping
-	public String inputPro( @ModelAttribute LogonDataBean logonDto, @RequestParam String user_id,
+	public String inputPro( @ModelAttribute LogonDataBean logonDto, @RequestParam String userId,
 			@RequestParam String nickname, @RequestParam String email, Model model ) throws Exception {
 		
 		logonDto.setEmail( email );
-		 int checkid = logonDao.check(user_id);
+		 int checkid = logonDao.check(userId);
 		 int checknickname = logonDao.checkNickname(nickname);
 		 int checkemail = logonDao.checkEmail(email);
 		    if (checkid == 1) {  
