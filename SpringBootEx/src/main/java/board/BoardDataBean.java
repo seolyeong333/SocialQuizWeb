@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 public class BoardDataBean {
 	private int num;				// 글 번호 (Primary Key)
-	private String user_id;			// 작성자 ID (Users 테이블의 user_id)
+	private String userId;			// 작성자 ID (Users 테이블의 user_id)
 	private String subject;			// 글 제목
 	private Timestamp reg_date;		// 작성일
 	private int ref;				// 글 그룹
