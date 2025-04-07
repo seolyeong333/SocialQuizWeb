@@ -23,7 +23,7 @@
       <li><a href="logondelete" class="nav-link" onclick="loadPage(event, 'logondelete')">회원탈퇴</a></li>
       <li><a href="logonrank" class="nav-link" onclick="loadPage(event, 'logonrank')">랭킹조회</a></li>
       <li><a href="#" class="nav-link" onclick="loadPage(event, 'qnawrite')">1:1문의</a></li>
-      <li><a href="#" class="nav-link" onclick="loadPage(event, 'qnawrite')">1:1문의내역</a></li>
+      <li><a href="#" class="nav-link" onclick="loadPage(event, 'qnamylist')">1:1문의내역</a></li>
     </ul>
   </div>
 
