@@ -16,3 +16,4 @@ public interface BoardMapper {
 	public void deleteReply(BoardDataBean boardDto); // 답글 삭제
 	public int deleteArticle(int num);				// 게시글 삭제
 }
+

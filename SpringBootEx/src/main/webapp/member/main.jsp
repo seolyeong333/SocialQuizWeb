@@ -23,10 +23,10 @@
 	          <a class="nav-link active" aria-current="page" href="#">${page_main}</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">O/X게임</a>
+	          <a class="nav-link" href="quiz/startox">O/X게임</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">끝말잇기</a>
+	          <a class="nav-link" href="quiz/startword">끝말잇기</a>
 	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link" href="#">랭킹</a>
@@ -69,7 +69,10 @@
 	
 	<div class="container">
 		<div class="div1"> </div>
-		<div class="div2"> 추천게임 </div>
+		<div class="div2">
+		<a href="quiz/selectquiz" >추천게임 </a> 
+		
+		</div>
 		<img src="${project}images/teamFruit.jpg" alt="img" class="image" >
 		<div class="div3"> 
 			<h1 class="home"> 실시간 순위 </h1>  			           
