@@ -30,7 +30,7 @@ public class BoardModify {
         BoardDataBean boardDto = boardDao.getArticle(num);
 
         // 작성자 확인
-        if (!boardDto.getUserId().equals(loginUserId)) {
+        if (!boardDto.getUser_id().equals(loginUserId)) {
             model.addAttribute("result", -2);
             model.addAttribute("pageNum", pageNum);
             return "board/modifyPro";

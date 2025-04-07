@@ -20,7 +20,7 @@
 	</tr>
 	<tr>
 		<th>${str_writer}</th>
-		<td style="text-align: center;">${boardDto.userId}</td>  <!-- 수정된 부분 -->
+		<td style="text-align: center;">${boardDto.user_id}</td>  <!-- 수정된 부분 -->
 		<th>${str_reg_date}</th>
 		<td style="text-align: center;">
 			<fmt:formatDate type="both" value="${boardDto.reg_date}" pattern="yyyy-MM-dd HH:mm" />
@@ -38,7 +38,7 @@
 	<th colspan="4">
 
 		<%-- 로그인한 사용자와 작성자가 같을 때만 보여지는 수정/삭제 버튼 --%>
-		<c:if test="${sessionScope.memId eq boardDto.userId}">
+		<c:if test="${sessionScope.memId eq boardDto.user_id}">
 			<input class="inputbutton" type="button" value="${btn_modify}"
 				onclick="location='boardmodify?num=${num}&pageNum=${pageNum}'">
 			<input class="inputbutton" type="button" value="${btn_delete}"

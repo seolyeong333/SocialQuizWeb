@@ -41,7 +41,7 @@ public class BoardWrite {
 	                       HttpServletRequest request, Model model) throws Exception {
 	    // 로그인된 사용자 ID 세션에서 가져오기
 	    String userId = (String) request.getSession().getAttribute("memId");
-	    boardDto.setUserId(userId); // 자동 주입
+	    boardDto.setUser_id(userId); // 자동 주입
 
 	    // 작성일 설정
 	    boardDto.setReg_date(new Timestamp(System.currentTimeMillis()));

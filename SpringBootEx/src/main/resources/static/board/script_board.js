@@ -19,15 +19,15 @@ window.addEventListener(
 			writeform.addEventListener(
 				"submit",
 				( event ) => {
-					let userId = document.querySelector( "input[name='userId']" );
+					let user_id = document.querySelector( "input[name='user_id']" );
 					let subject = document.querySelector( "input[name='subject']" );
 					let content = document.querySelector( "textarea[name='content']" );
 					let passwd = document.querySelector( "input[name='passwd']" );
 					let tag = /<[^>]*>/; 					
-					if( ! userId.value ) {
+					if( ! user_id.value ) {
 						alert( msg_writer );
 						event.preventDefault();
-						userId.focus();
+						user_id.focus();
 					} else if( ! subject.value ) {
 						alert( msg_subject );
 						event.preventDefault();
@@ -40,13 +40,13 @@ window.addEventListener(
 						alert( msg_passwd );
 						event.preventDefault();
 						passwd.focus();
-					} else if( tag.test( userId.value ) 
+					} else if( tag.test( writer.value ) 
 						|| tag.test( subject.value ) 
 						|| tag.test( content.value ) 
 						|| tag.test( passwd.value ) ) {
 						alert( msg_tag );
 						event.preventDefault();
-						userId.focus();
+						writer.focus();
 					}					
 				}			
 			);
