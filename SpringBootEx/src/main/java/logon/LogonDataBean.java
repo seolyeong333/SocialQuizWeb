@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LogonDataBean {
-	private String userId;
+	private String user_id;
 	private String passwd;
 	private String nickname;
 	private String email;
