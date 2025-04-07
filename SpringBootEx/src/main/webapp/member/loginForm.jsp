@@ -10,7 +10,7 @@
 		<form name="loginform" method="post" action="logonlogin">
 			<table>
 				<tr>
-					<td> <input class="input" type="text" name="userId" 
+					<td> <input class="input" type="text" name="user_id" 
 					placeholder="ID" maxlength="15" autofocus> </td>
 				</tr>
 				<tr>

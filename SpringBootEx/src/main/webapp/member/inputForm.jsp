@@ -7,7 +7,7 @@
 
 <form class="form" method="post" name ="inputform" action="logoninput">
 	<h2 class="form_title">${page_input}</h2>
-	<input type="text" placeholder="ID" class="input" name="userId" /> 
+	<input type="text" placeholder="ID" class="input" name="user_id" /> 
 	<input type="password" placeholder="Password" class="input"name="passwd" /> 
 	<input type="password" placeholder="Repeat Password" class="input" name="repasswd" /> 
 	<input type="text" placeholder="Nickname" class="input" name="nickname" />

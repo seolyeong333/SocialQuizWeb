@@ -15,8 +15,8 @@ public class LogonDBBean {
 	}
 	
 	// 아이디 중복 확인	
-	public int check( String userId ) {		
-		return logonMapper.check( userId );
+	public int check( String user_id ) {		
+		return logonMapper.check( user_id );
 	}
 	
 	// 닉네임 중복 확인 
@@ -28,12 +28,12 @@ public class LogonDBBean {
 	}
 	
 	// 로그인	
-	public int check( String userId, String passwd ) {		
+	public int check( String user_id, String passwd ) {		
 		int result = 0;		
-		int count = check( userId );
+		int count = check( user_id );
 		if( count == 1 ) {
 			// 아이디가 있다
-			LogonDataBean logonDto = getMember( userId );
+			LogonDataBean logonDto = getMember( user_id );
 			if( passwd.equals( logonDto.getPasswd() ) ) {
 				// 비밀번호가 같다
 				result = 1;
@@ -49,13 +49,13 @@ public class LogonDBBean {
 	}
 	
 	// 회원탈퇴
-	public int deleteMember( String userId ) {		
-		return logonMapper.deleteMember( userId );		
+	public int deleteMember( String user_id ) {		
+		return logonMapper.deleteMember( user_id );		
 	}
 	
 	// 회원 정보 수정
-	public LogonDataBean getMember( String userId ) {		
-		return logonMapper.getMember( userId );
+	public LogonDataBean getMember( String user_id ) {		
+		return logonMapper.getMember( user_id );
 	}
 	
 	public int modifyMember( LogonDataBean logonDto ) {

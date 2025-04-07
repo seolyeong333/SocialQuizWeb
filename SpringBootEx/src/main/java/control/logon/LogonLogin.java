@@ -29,12 +29,12 @@ public class LogonLogin {
 	}	
 	
 	@PostMapping
-	public String loginPro( @RequestParam String userId, @RequestParam String passwd,
+	public String loginPro( @RequestParam String user_id, @RequestParam String passwd,
 		Model model, HttpSession session ) throws Exception {		
 		System.out.println("안녕하세요");
-		int result = logonDao.check( userId, passwd );
+		int result = logonDao.check( user_id, passwd );
 		if( result == 1 )
-			session.setAttribute( "memId", userId );		
+			session.setAttribute( "memId", user_id );		
 		model.addAttribute( "result", result );				
 		return "member/loginPro";
 	}
