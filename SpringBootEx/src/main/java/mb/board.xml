@@ -8,7 +8,6 @@
 	    SELECT NVL(MAX(num), 0) FROM notices
 	</select>
 
-
 	<!-- 총 글 개수 -->
 	<select id="getCount" resultType="int">
 		SELECT COUNT(*) FROM notices
@@ -41,9 +40,6 @@
 		)
 		WHERE rnum &gt;= #{start}
 	</select>
-
-
-
 
 	<!-- 글 상세 보기 -->
 	<select id="getArticle" parameterType="int" resultType="board.BoardDataBean">
