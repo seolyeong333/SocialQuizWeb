@@ -26,6 +26,7 @@
  	
  	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
  		select * from members where userId = #{userId}	
+
  	</select>
  	
  	<update id="modifyMember" parameterType="logon.LogonDataBean">
@@ -33,16 +34,22 @@
  		email=#{email, jdbcType=VARCHAR}
  		where userId=#{userId}
  	</update>
+ 	
+ 	<resultMap id="MemberMap" type="logon.Members">
+	    <result property="userId" column="user_id" />
+	    <result property="passwd" column="passwd" />
+	    <result property="nickname" column="nickname" />
+	    <result property="email" column="email" />
+	    <result property="auth" column="auth" />
+	    <result property="createdAt" column="created_at" />
+	</resultMap>
+ 	<select id="findByUserId" parameterType="string" resultMap="MemberMap"> 
+ 		SELECT * FROM members WHERE user_id = #{userId} 
+ 	</select>
+ 	
+
  </mapper>
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  
