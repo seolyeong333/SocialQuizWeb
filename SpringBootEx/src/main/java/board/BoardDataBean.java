@@ -19,3 +19,6 @@ public class BoardDataBean {
 	private String content;			// 글 내용
 	private int readcount;			// 조회수
 }
+
+
+

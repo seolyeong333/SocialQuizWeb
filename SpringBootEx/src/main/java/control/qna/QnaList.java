@@ -13,16 +13,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import qna.QnaDBBean;
 import qna.QnaDataBean;
+import control.oxgame.StartOX;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping( "/qnalist" )
+@RequestMapping
 public class QnaList {
+
+    private final StartOX startOX;
 	@Resource
 	private QnaDBBean qnaDao;
+
+    QnaList(StartOX startOX) {
+        this.startOX = startOX;
+    }
 	
-	@GetMapping
+	@GetMapping( "/qnalist" )
 	public String qnaList( @RequestParam( required=false ) String pageNum, Model model ) throws Exception {
 
 		int pageSize = 10;
@@ -81,9 +88,9 @@ public class QnaList {
 		return "qna/list";
 	}
 	
-	@PostMapping
+	@GetMapping( "/qnamylist" )
 	public String qnaMyList( @RequestParam( required=false ) String pageNum, HttpSession session, Model model ) throws Exception {
-		String user_id = (String) session.getAttribute("user_id");
+		String userId = (String) session.getAttribute("memId");
 		int pageSize = 10;
 		int pageBlock = 5; 
 		
@@ -133,7 +140,7 @@ public class QnaList {
 			Map<String, Object> map = new HashMap<>();
 			map.put( "start", start );
 			map.put( "end", end );
-			map.put( "user_id", user_id); 
+			map.put( "userId", userId); 
 			List<QnaDataBean> dtos = qnaDao.getMyArticles( map );
 			model.addAttribute( "dtos", dtos );
 		}

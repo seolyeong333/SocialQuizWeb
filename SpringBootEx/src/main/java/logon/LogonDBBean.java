@@ -1,7 +1,5 @@
 package logon;
-
 import org.springframework.stereotype.Service;
-
 import jakarta.annotation.Resource;
 
 @Service
@@ -62,28 +60,5 @@ public class LogonDBBean {
 		return logonMapper.modifyMember( logonDto );		
 	}
 	// class
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -52,7 +52,7 @@
 						${dto.subject}
 					</a>
 				</td>
-				<td style="text-align: center;">${dto.user_id}</td> <!-- 수정된 부분 -->
+				<td style="text-align: center;">${dto.userId}</td> <!-- 수정된 부분 -->
 				<td style="text-align: center;">
 					<fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd HH:mm" />
 				</td>

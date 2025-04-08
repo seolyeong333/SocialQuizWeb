@@ -26,31 +26,24 @@ public class LogonModify {
 	@PostMapping( "/logonmodify" )
 	public String process( HttpSession session, @RequestParam String passwd, Model model ) 
 		throws Exception {		
-		String user_id = (String) session.getAttribute( "memId" );
-		int result = logonDao.check( user_id, passwd );
-		model.addAttribute( "result", result );
-		System.out.println( result );
+		String userId = (String) session.getAttribute( "memId" );
+		int result = logonDao.check( userId, passwd );
+		model.addAttribute( "result", result );	
 		if( result == 1 ) {
-			LogonDataBean memberDto = logonDao.getMember( user_id );
+			LogonDataBean memberDto = logonDao.getMember( userId );
 			model.addAttribute( "memberDto", memberDto );
 		}		
 		return "member/modifyView";
 	}
+	
 	@PostMapping( "/logonmodifypro" )
 	public String process( @ModelAttribute LogonDataBean logonDto, 
 		
 		@RequestParam String email, Model model ) throws Exception {
-		logonDto.setEmail( email );	
-	
-		int result = logonDao.modifyMember( logonDto );	
-		
-		model.addAttribute( "result", result );
-		
+		logonDto.setEmail( email );			
+		int result = logonDao.modifyMember( logonDto );			
+		model.addAttribute( "result", result );		
 		return "member/modifyPro";
 	}
 	
 }
-
-
-
-

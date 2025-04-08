@@ -59,7 +59,7 @@ public class QnaDBBean {
 	public int modifyArticle(QnaDataBean qnaDto, String loginUserId) {
 		QnaDataBean origin = getArticle(qnaDto.getNum());
 
-	    if (!origin.getUser_id().equals(loginUserId)) {
+	    if (!origin.getUserId().equals(loginUserId)) {
 	        return -2; // 권한 없음
 	    }
 
@@ -72,7 +72,7 @@ public class QnaDBBean {
 		QnaDataBean qnaDto = getArticle(num);
 
 	    // 작성자 검증
-	    if (!qnaDto.getUser_id().equals(loginUserId)) {
+	    if (!qnaDto.getUserId().equals(loginUserId)) {
 	        return -2; // 권한 없음
 	    }
 
