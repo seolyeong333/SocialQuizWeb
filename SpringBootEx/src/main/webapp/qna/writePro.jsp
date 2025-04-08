@@ -10,10 +10,10 @@
 		<script type="text/javascript">
 			alert(error_write);
 		</script>
-		<meta http-equiv="refresh" content="0; url=qnalist">
+		<meta http-equiv="refresh" content="0; url=logonpage">
 	</c:when>
 
 	<c:when test="${result eq 1}">
-		<c:redirect url="qnalist" />
+		<c:redirect url="logonpage#" />
 	</c:when>
 </c:choose>

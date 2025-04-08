@@ -30,7 +30,7 @@ public class QnaModify {
         QnaDataBean qnaDto = qnaDao.getArticle(num);
 
         // 작성자 확인
-        if (!qnaDto.getUser_id().equals(loginUserId)) {
+        if (!qnaDto.getUserId().equals(loginUserId)) {
             model.addAttribute("result", -2);
             model.addAttribute("pageNum", pageNum);
             return "qna/modifyPro";

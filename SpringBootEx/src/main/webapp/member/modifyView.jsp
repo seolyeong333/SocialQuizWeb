@@ -9,7 +9,7 @@
 
 <c:if test="${result eq 1}">
 	<form name="modifyform" method="post" action="logonmodifypro">
-		<input type="hidden" name="user_id" value="${memberDto.user_id}">
+		<input type="hidden" name="userId" value="${memberDto.user_id}">
 		<table>
 			<tr>				
 				<th colspan="2"> ${msg_modify} </th>
@@ -44,7 +44,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th> ${str_created_at } </th>
+				<th> ${str_created_at} </th>
 				<td>
 					&nbsp;<fmt:formatDate type="both" value="${memberDto.created_at}" 
 						pattern="yyyy-MM-dd HH:mm"/>

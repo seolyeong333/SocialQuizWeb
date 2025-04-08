@@ -19,8 +19,7 @@ public class QnaContent {
 	@GetMapping
 	public String qnaContent(@RequestParam int num, @RequestParam String pageNum,
 	                           @RequestParam int number, Model model) throws Exception {
-
-
+		
 		// 게시글 조회
 		QnaDataBean qnaDto = qnaDao.getArticle(num);
 

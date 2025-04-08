@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<th>${str_writer}</th>
-			<td>&nbsp;${qnaDto.user_id}</td>
+			<td>&nbsp;${qnaDto.userId}</td>
 		</tr>
 		<tr>
 			<th>${str_subject}</th>

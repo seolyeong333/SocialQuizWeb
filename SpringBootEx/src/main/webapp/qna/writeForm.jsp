@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label for="name">${str_writer}</label>
-                <input type="text" id="name" name="user_id" value="${sessionScope.memId}" readonly required>
+                <input type="text" id="name" name="userId" value="${sessionScope.memId}" readonly required>
             </div>
 
             <div class="form-group">
