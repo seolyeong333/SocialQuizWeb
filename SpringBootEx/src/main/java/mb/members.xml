@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="logon.MemberMapper">
+ 
+ 	<insert id="insertMember" parameterType="logon.LogonDataBean">
+ 		INSERT INTO members (user_id, passwd, nickname, email, auth,  block_id)
+		VALUES (#{userId}, #{passwd}, #{nickname}, #{email, jdbcType=VARCHAR}, 'ROLE_MEMBER', '0')
+ 	</insert>
+ 	
+ 	<select id="check" parameterType="String" resultType="int">
+ 		select count(*) from members where user_id=#{userId}
+ 	</select>
+ 	
+ 	<select id="checkNickname" parameterType="String" resultType="int">
+ 		select count(*) from members where nickname=#{nickname}
+ 	</select>
+ 	
+ 	<select id="checkEmail" parameterType="String" resultType="int">
+ 		select count(*) from members where email=#{email}
+ 	</select>
+ 	
+ 	<delete id="deleteMember" parameterType="String">
+ 		delete from members where user_id=#{userId}
+ 	</delete>
+ 	
+ 	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
+ 		select * from members where user_id=#{userId}	
+ 	</select>
+ 	
+ 	<update id="modifyMember" parameterType="logon.LogonDataBean">
+ 		update members set passwd=#{passwd}, 
+ 		email=#{email, jdbcType=VARCHAR}
+ 		where user_id=#{userId}
+ 	</update>
+ 	
+ 	<resultMap id="MemberMap" type="logon.Members">
+	    <result property="userId" column="user_id" />
+	    <result property="passwd" column="passwd" />
+	    <result property="nickname" column="nickname" />
+	    <result property="email" column="email" />
+	    <result property="auth" column="auth" />
+	    <result property="createdAt" column="created_at" />
+	</resultMap>
+ 	<select id="findByUserId" parameterType="string" resultMap="MemberMap"> 
+ 		SELECT * FROM members WHERE user_id = #{userId} 
+ 	</select>
+ 	
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
