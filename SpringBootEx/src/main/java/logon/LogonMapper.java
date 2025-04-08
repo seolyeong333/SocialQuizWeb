@@ -1,9 +1,11 @@
 package logon;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Mapper
 public interface LogonMapper {
+	@Autowired
 	public int insertMember( LogonDataBean dto );
 	public int check( String userId );
 	public int check( String userId, String passwd );
