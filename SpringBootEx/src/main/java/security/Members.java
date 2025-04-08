@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Members {
+	// mb/members.xml과 연동 - member.xml과 큰 차이는 없지만 파일명 때문에 꼭 필요함(security가 해결 안된 상태라)
 	private String userId;
 	private String passwd;
 	private String nickname;
