@@ -31,7 +31,6 @@ public class LogonLogin {
 	@PostMapping
 	public String loginPro( @RequestParam String userId, @RequestParam String passwd,
 		Model model, HttpSession session ) throws Exception {		
-		System.out.println("안녕하세요");
 		int result = logonDao.check( userId, passwd );
 		if( result == 1 )
 			session.setAttribute( "memId", userId );		
@@ -39,11 +38,6 @@ public class LogonLogin {
 		return "member/loginPro";
 	}
 }
-
-
-
-
-
 
 
 

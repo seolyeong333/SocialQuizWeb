@@ -20,7 +20,7 @@
 		<th style="width:150px;">${str_num}</th>
 		<td style="text-align: center; width:200px">${number}</td>
 		<th>${str_writer}</th>
-		<td style="text-align: center;">${qnaDto.user_id}</td>  <!-- 수정된 부분 -->
+		<td style="text-align: center;">${qnaDto.userId}</td>  <!-- 수정된 부분 -->
 		<th>${str_reg_date}</th>
 		<td style="text-align: center;">
 			<fmt:formatDate type="both" value="${qnaDto.reg_date}" pattern="yyyy-MM-dd HH:mm"/>
@@ -38,7 +38,7 @@
 			<input class="inputbutton" type="button" value="${btn_reply}"
 				onclick="location='qnareply?num=${qnaDto.num}&ref=${qnaDto.ref}&re_step=${qnaDto.re_step}&re_level=${qnaDto.re_level}&subject=${qnaDto.subject}'">
 			<input class="inputbutton" type="button" value="${btn_list}"
-				onclick="location='qnalist?pageNum=${pageNum}'">
+				onclick="history.back()">
 
 	</th>
 </tr>

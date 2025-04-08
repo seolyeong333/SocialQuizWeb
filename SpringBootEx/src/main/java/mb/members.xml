@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
   	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
- <mapper namespace="logon.MemberMapper">
- 
+ <mapper namespace="logon.LogonMapper">
  	<insert id="insertMember" parameterType="logon.LogonDataBean">
  		INSERT INTO members (userId, passwd, nickname, email, auth,  block_id)
 		VALUES (#{userId}, #{passwd}, #{nickname}, #{email, jdbcType=VARCHAR}, 'ROLE_MEMBER', '0')
+ 		INSERT INTO members (userId, passwd, nickname, auth, email, block_id)
+		VALUES (#{userId}, #{passwd}, #{nickname},'ROLE_MEMBER' ,#{email, jdbcType=VARCHAR}, '0')
  	</insert>
  	
  	<select id="check" parameterType="String" resultType="int">
@@ -36,7 +36,7 @@
  		where userId=#{userId}
  	</update>
  	
- 	<resultMap id="MemberMap" type="logon.Members">
+ 	<resultMap id="MemberMap" type="security.Members">
 	    <result property="userId" column="user_id" />
 	    <result property="passwd" column="passwd" />
 	    <result property="nickname" column="nickname" />
@@ -44,17 +44,12 @@
 	    <result property="auth" column="auth" />
 	    <result property="createdAt" column="created_at" />
 	</resultMap>
- 	<select id="findByUserId" parameterType="string" resultMap="security.Members"> 
+ 	<select id="findByUserId" parameterType="string" resultMap="MemberMap"> 
  		SELECT * FROM members WHERE userId = #{userId} 
  	</select>
  	
  </mapper>
  
  
- 
- 
- 
- 
- 
- 
+
  

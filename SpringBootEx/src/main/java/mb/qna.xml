@@ -23,9 +23,9 @@
 	<!-- 글쓰기 -->
 	<insert id="insertArticle" parameterType="qna.QnaDataBean">
 		INSERT INTO requests (
-			user_id, subject, reg_date, ref, re_step, re_level, content, num
+			userId, subject, reg_date, ref, re_step, re_level, content, num
 		) VALUES (
-			#{user_id}, #{subject}, #{reg_date}, #{ref}, #{re_step}, #{re_level}, #{content}, seq_requests.NEXTVAL
+			#{userId}, #{subject}, #{reg_date}, #{ref}, #{re_step}, #{re_level}, #{content}, seq_requests.NEXTVAL
 		)
 	</insert>
 
@@ -33,7 +33,7 @@
 	<select id="getArticles" parameterType="java.util.Map" resultType="qna.QnaDataBean">
 		SELECT * FROM (
 			SELECT ROWNUM rnum, A.* FROM (
-				SELECT num, user_id, subject, reg_date, ref, re_step, re_level, content
+				SELECT num, userId, subject, reg_date, ref, re_step, re_level, content
 				FROM requests
 				ORDER BY ref DESC, re_step ASC
 			) A
@@ -43,21 +43,25 @@
 	</select>
 	
 		<select id="getMyArticles" parameterType="java.util.Map" resultType="qna.QnaDataBean">
-		SELECT * FROM (
-			SELECT ROWNUM rnum, A.* FROM (
-				SELECT num, user_id, subject, reg_date, ref, re_step, re_level, content
-				FROM requests
-				WHERE user_id = #{user_id}
-				ORDER BY ref DESC, re_step ASC
-			) A
-			WHERE ROWNUM &lt;= #{end}
-		)
-		WHERE rnum &gt;= #{start}
-	</select>
+		  SELECT * FROM (
+		    SELECT ROWNUM rnum, A.* FROM (
+		      SELECT num, userId, subject, reg_date, ref, re_step, re_level, content
+		      FROM requests
+		      WHERE ref IN (
+		        SELECT DISTINCT ref
+		        FROM requests
+		        WHERE userId = #{userId}
+		      )
+		      ORDER BY ref DESC, re_step ASC
+		    ) A
+		    WHERE ROWNUM &lt;= #{end}
+		  )
+		  WHERE rnum &gt;= #{start}
+		</select>
 	
 	<!-- 글 상세 보기 -->
 	<select id="getArticle" parameterType="int" resultType="qna.QnaDataBean">
-		SELECT num, user_id, subject, reg_date, ref, re_step, re_level, content
+		SELECT num, userId, subject, reg_date, ref, re_step, re_level, content
 		FROM requests
 		WHERE num = #{num}
 	</select>

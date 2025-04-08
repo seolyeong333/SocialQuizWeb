@@ -50,15 +50,15 @@ public class SecurityConfig {
 			AbstractHttpConfigurer::disable
 
 		).formLogin(
-			f -> f.loginPage( "/logon/login" )
+			f -> f.loginPage( "/logonlogin" )
 				.usernameParameter( "userId" )
 				.passwordParameter( "passwd" )
-				.defaultSuccessUrl( "/logon/main", true )
+				.defaultSuccessUrl( "/logonmain", true )
 		).logout(
-			f -> f.logoutUrl( "/logon/logout" )
+			f -> f.logoutUrl( "/logonlogout" )
 				.invalidateHttpSession( true )				// 세션무효화
 				.deleteCookies( "JSESSIONID" )				// 쿠키 삭제
-				.logoutSuccessUrl( "/logon/main" )
+				.logoutSuccessUrl( "/logonmain" )
 		// and().rememberMe()
 		// .key("myKey").tokenValiditySeconds(86400)
 		);

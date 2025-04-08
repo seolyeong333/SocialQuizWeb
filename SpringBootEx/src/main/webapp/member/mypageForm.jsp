@@ -13,17 +13,17 @@
 
 <body>
 <div class="container-flex">
-  <!-- Sidebar -->
+
   <div class="sidebar">
     <a href="logonmain" class="fs-4">메인페이지</a>
     
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-      <li><a href="logonmodify" class="nav-link" onclick="loadPage(event, 'logonmodify')">회원정보수정</a></li>
-      <li><a href="logondelete" class="nav-link" onclick="loadPage(event, 'logondelete')">회원탈퇴</a></li>
-      <li><a href="logonrank" class="nav-link" onclick="loadPage(event, 'logonrank')">랭킹조회</a></li>
-      <li><a href="#" class="nav-link" onclick="loadPage(event, 'qnawrite')">1:1문의</a></li>
-      <li><a href="#" class="nav-link" onclick="loadPage(event, 'qnamylist')">1:1문의내역</a></li>
+      <li><a href="#logonmodify" class="nav-link" onclick="loadPage(event, 'logonmodify')">회원정보수정</a></li>
+      <li><a href="#logondelete" class="nav-link" onclick="loadPage(event, 'logondelete')">회원탈퇴</a></li>
+      <li><a href="#logonrank" class="nav-link" onclick="loadPage(event, 'logonrank')">랭킹조회</a></li>
+      <li><a href="#qnawrite" class="nav-link" onclick="loadPage(event, 'qnawrite')">1:1문의</a></li>
+      <li><a href="#qnamylist" class="nav-link" onclick="loadPage(event, 'qnamylist')">1:1문의내역</a></li>
     </ul>
   </div>
 
@@ -35,7 +35,6 @@
 
 <script>
   function loadPage(event, pageUrl) {
-    event.preventDefault(); // a 태그의 기본 이동 막기
     $('#main-content').load(pageUrl); // AJAX로 오른쪽 영역에 로드
   }
 </script>

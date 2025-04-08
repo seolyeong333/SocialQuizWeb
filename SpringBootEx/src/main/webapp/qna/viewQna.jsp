@@ -20,7 +20,6 @@
 		</td>
 	</tr>
 	<tr>
-		<th style="width:7%">${str_num}</th>
 		<th style="width:40%">${str_subject}</th>
 		<th style="width:13%">${str_writer}</th>
 		<th style="width:15%">${str_reg_date}</th>
@@ -36,10 +35,7 @@
 		<c:set var="number" value="${number}" />
 		<c:forEach var="dto" items="${dtos}">
 			<tr>
-				<td style="text-align: center;">
-					${number}
 					<c:set var="number" value="${number - 1}" />
-				</td>
 				<td>
 					<c:if test="${dto.re_level gt 1}">
 						<c:set var="wid" value="${(dto.re_level - 1) * 10}" />
@@ -52,7 +48,7 @@
 						${dto.subject}
 					</a>
 				</td>
-				<td style="text-align: center;">${dto.user_id}</td> <!-- 수정된 부분 -->
+				<td style="text-align: center;">${dto.userId}</td> <!-- 수정된 부분 -->
 				<td style="text-align: center;">
 					<fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd HH:mm" />
 				</td>

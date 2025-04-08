@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import mb.MBApplication;
+
 @SpringBootApplication
 @ComponentScan( basePackages= { "mb", "logon", "control.logon" } )
 @MapperScan( basePackages= { "logon" } )

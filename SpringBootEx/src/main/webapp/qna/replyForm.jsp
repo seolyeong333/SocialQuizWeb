@@ -25,7 +25,7 @@
 		<tr>
 			<th>${str_writer}</th>
 			<td>
-				<input class="input" type="text" name="user_id" value="${sessionScope.memId}" readonly>
+				<input class="input" type="text" name="userId" value="${sessionScope.memId}" readonly>
 			</td>
 		</tr>
 		<tr>
@@ -53,7 +53,7 @@
 				<input class="inputbutton" type="submit" value="${btn_write}">
 				<input class="inputbutton" type="reset" value="${btn_cancle}">
 				<input class="inputbutton" type="button" value="${btn_list}"
-					onclick="location='qnalist'">
+					onclick="history.back()">
 			</th>
 		</tr>
 	</table>
