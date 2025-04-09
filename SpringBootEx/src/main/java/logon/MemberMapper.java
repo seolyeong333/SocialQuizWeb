@@ -1,10 +1,11 @@
-package security;
+package logon;
 
 import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import logon.LogonDataBean;
+import security.Members;
 
 @Mapper
 public interface MemberMapper {
@@ -17,5 +18,5 @@ public interface MemberMapper {
 	public LogonDataBean getMember( String userId );
 	public int modifyMember( LogonDataBean memberDto );
 	
-	Optional<Members> findByUserId( String userId );
+	public Optional<Members> findByUserId( String userId );
 }

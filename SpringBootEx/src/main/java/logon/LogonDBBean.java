@@ -1,28 +1,32 @@
 package logon;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
+
 import jakarta.annotation.Resource;
+import security.Members;
 
 @Service
 public class LogonDBBean {
 	@Resource
-	private LogonMapper logonMapper;
+	private MemberMapper memberMapper;
 		
 	// 회원가입
 	public int insertMember( LogonDataBean logonDto ) {
-		return logonMapper.insertMember( logonDto );			
+		return memberMapper.insertMember( logonDto );			
 	}
 	
 	// 아이디 중복 확인	
 	public int check( String userId ) {		
-		return logonMapper.check( userId );
+		return memberMapper.check( userId );
 	}
 	
 	// 닉네임 중복 확인 
 	public int checkNickname( String nickname ) {		
-		return logonMapper.checkNickname( nickname );
+		return memberMapper.checkNickname( nickname );
 	}
 	public int checkEmail( String email ) {		
-		return logonMapper.checkEmail( email );
+		return memberMapper.checkEmail( email );
 	}
 	
 	// 로그인	
@@ -48,17 +52,20 @@ public class LogonDBBean {
 	
 	// 회원탈퇴
 	public int deleteMember( String userId ) {		
-		return logonMapper.deleteMember( userId );		
+		return memberMapper.deleteMember( userId );		
 	}
 	
 	// 회원 정보 수정
 	public LogonDataBean getMember( String userId ) {		
-		return logonMapper.getMember( userId );
+		return memberMapper.getMember( userId );
 	}
 	
 	public int modifyMember( LogonDataBean logonDto ) {
-		return logonMapper.modifyMember( logonDto );		
+		return memberMapper.modifyMember( logonDto );		
 	}
 	// class
+	public Optional<Members> findByUserId(String userId){
+		return memberMapper.findByUserId(userId);
+	}
 }
 

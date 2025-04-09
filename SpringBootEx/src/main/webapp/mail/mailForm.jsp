@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<html>
-<head>
+ <html>
+ <head>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <meta charset="UTF-8">
     <title>mail test</title>
-</head>
-<body>
+ </head>
+ <body>
 		이메일을 입력하세요 : <input type="text" name="toEmail">
 		<input type="submit" value="전송" name="btn_submit">
 		<br>
@@ -29,18 +29,14 @@
 					test = fetch('/sendmail', {
 
 					  method: 'POST',
-
 					  body: toEmail,
 
 					})
 					 .then((data) => {
 					
-												
-
 					})
 					 .catch(
 						error => console.log('Error:', error)
-						
 						);
 
 						btn_auth.setAttribute("style","");
@@ -64,7 +60,7 @@
 		
         });
 		
-	</script>
+ 	</script>
 
-</body>
-</html>
+  </body>
+  </html>

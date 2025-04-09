@@ -7,12 +7,12 @@
 
 <c:if test="${result eq 0}">   
 	<script type="text/javascript">
-		erroralert(error_user_id);
+		erroralert(error_login);
 	</script>
 </c:if>
 <c:if test="${result eq -1}">
 	<script type="text/javascript">
-		erroralert(error_passwd);
+		erroralert(error_login);
 	</script>
 </c:if>
 <c:if test="${result eq 1}">

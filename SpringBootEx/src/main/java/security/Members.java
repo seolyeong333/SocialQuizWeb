@@ -3,6 +3,8 @@ package security;
 
 import java.sql.Timestamp;
 
+import org.springframework.stereotype.Service;
+
 import lombok.Getter;
 import lombok.Setter;
 @Setter
@@ -12,9 +14,12 @@ public class Members {
 	private String userId;
 	private String passwd;
 	private String nickname;
-	private String auth;
 	private String email;
 	private Timestamp createdAt;
+	private Timestamp deletedAt;
+	private char blockId;
+	private String auth;
+
 }
 
 

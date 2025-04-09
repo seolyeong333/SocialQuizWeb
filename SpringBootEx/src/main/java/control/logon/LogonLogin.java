@@ -38,7 +38,3 @@ public class LogonLogin {
 		return "member/loginPro";
 	}
 }
-
-
-
-

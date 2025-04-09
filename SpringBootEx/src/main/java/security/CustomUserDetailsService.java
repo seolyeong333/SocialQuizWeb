@@ -1,16 +1,18 @@
 package security;
-import org.springframework.security.core.userdetails.*;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.stereotype.Service;
-import java.util.Collections;
 import java.util.List;
+
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Service;
+
+import logon.MemberMapper;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-    private final MemberMapper memberMapper;
-    public CustomUserDetailsService( MemberMapper memberMapper ) {
-        this.memberMapper = memberMapper;
-    }
-
+    private final MemberMapper memberMapper = null;
+ 
     @Override
     public UserDetails loadUserByUsername( String userId ) throws UsernameNotFoundException {	    	
        	Members members = memberMapper.findByUserId( userId ).orElseThrow(
@@ -24,10 +26,6 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("권한 정보가 없습니다.");
         }
 
-        return new org.springframework.security.core.userdetails.User(
-                members.getUserId(),
-                members.getPasswd(),
-                List.of(new SimpleGrantedAuthority(role)) 
-        );
+        return;
   	}	
 }

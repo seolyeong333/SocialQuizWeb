@@ -46,7 +46,7 @@
 		 			<tr align="center">
 			 			<td> 
 			 				<input class="inputbutton" type="button" value="${btn_input}"
-			 				onclick="location='logoninput'">
+			 				onclick="location='${pageContext.request.contextPath}/logoninput'">
 			 			</td>
 		 		</tr>
 			 	</p>
@@ -54,7 +54,7 @@
 		 			<tr align="center">
 			 			<td> 
 			 				<input class="inputbutton" type="button" value="${btn_main}"
-			 				onclick="location='logonmain'">
+			 				onclick="location='${pageContext.request.contextPath}/logonmain'">
 			 			</td>
 		 		</tr>
 			 	</p>

@@ -1,7 +1,5 @@
 package mail;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session.Cookie;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -15,14 +13,11 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.http.HttpServletResponse;
 
-@Service
-@Controller
 
+@Service
 @RequestMapping("/sendmail")
 public class EmailSendService {
-   private EmailBeans emailbean;
-	
-	@Autowired
+  
 	private JavaMailSender mailSender;
 	
 	private static String key;
@@ -31,9 +26,7 @@ public class EmailSendService {
 	}
 	
 	@PostMapping
-	@ResponseBody
-	public String sendEmail( Model model, @RequestBody String toEmail,
-			HttpServletResponse response) {
+	public @ResponseBody String sendEmail( @RequestBody String toEmail) {
 		RandomKey();
 		
 		MimeMessage message = mailSender.createMimeMessage();
@@ -45,7 +38,7 @@ public class EmailSendService {
 			String text = "";
 			text += "<h1>"+"인증코드 : "+"</h1><br>";
 			text += "<h2>"+key+"</h2>";
-			//System.out.println(key);
+			System.out.println(key);
 			message.setText(text,"UTF-8","html");
 			
 			mailSender.send(message);
@@ -54,12 +47,8 @@ public class EmailSendService {
 			e.printStackTrace();
 		}
 		System.out.println("Mail Sent Successfully...");
-		model.addAttribute("key","12345");
-		//JSONObject json = new JSONObject();
-		//json.put("key", key);
-		//System.out.println(json);
 		
-		return "mail/mailForm";
+		return key;
 	}
 	
 //	@PostMapping
