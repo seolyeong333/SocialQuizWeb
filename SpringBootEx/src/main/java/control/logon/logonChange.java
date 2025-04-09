@@ -34,9 +34,9 @@ public class logonChange {
 		String Id = logonDao.findId(email);
 		String Passwd = logonDao.findPasswd(userId);
 		
-	      if(!Id.equals(userId)) {
+	      if(!Id.equals(userId)) {				// 아까 이메일 인증받은게 아이디가 user_id랑 똑같은지 확인하고 처리
 	    	  model.addAttribute("result", 0);
-	      } else if(Passwd.equals(passwd)) {
+	      } else if(Passwd.equals(passwd)) {	// 비밀번호가 기존 비밀번호랑 같은지 확인하고 처리
 	    	  model.addAttribute("result", 2);  
 	      } else {
 	    	  logonDao.changePasswd(logonDto);

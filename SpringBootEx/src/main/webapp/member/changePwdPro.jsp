@@ -5,19 +5,20 @@
 
 <c:if test="${result eq 0}">
 	<script type="text/javascript">
-		erroralert( "아니 아이디가 틀린데염?" );
+		erroralert( error_id_incorrect );
 	</script>
 </c:if>
 
 <c:if test="${result eq 1}">
 	<script type="text/javascript">
-		alert( "비밀번호가 변경되었습니다." );
+		alert( msg_email_change );
 		<c:redirect url="logonlogin"/>		
 	</script>
 </c:if>
 
 <c:if test="${result eq 2}">
 	<script type="text/javascript">
-	erroralert( "아니 비밀번호가 전이랑 같은데염?" );	
+	erroralert( error_passwd_duplicate );	
 	</script>
 </c:if>
+
