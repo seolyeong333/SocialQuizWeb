@@ -35,8 +35,8 @@
 		 		
 			 	<p>
 			 		<tr align="center">
-			 			<td> 아이디 찾기 </td>
-			 			<td> 비밀번호 찾기 </td>
+			 			<a href="logonfindid" class="no-underline">아이디 찾기 </a> 
+			 			<a href="logonfindpwd" class="no-underline"> 비밀번호 찾기 </a>
 			 		</tr>
 			 	</p>
 			 	<tr align="center">

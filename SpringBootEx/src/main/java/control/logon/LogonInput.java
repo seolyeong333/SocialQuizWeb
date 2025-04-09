@@ -1,5 +1,7 @@
 package control.logon;
 
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,22 +26,22 @@ public class LogonInput {
 	}
 	@PostMapping
 	public String inputPro( @ModelAttribute LogonDataBean logonDto, @RequestParam String userId,
-			@RequestParam String nickname, @RequestParam String email, Model model ) throws Exception {
+			@RequestParam String nickname, @RequestParam String email, @RequestParam String emailVerified, Model model ) throws Exception {
 		
 		logonDto.setEmail( email );
 		 int checkid = logonDao.check(userId);
 		 int checknickname = logonDao.checkNickname(nickname);
-		 int checkemail = logonDao.checkEmail(email);
 		    if (checkid == 1) {  
 		    	model.addAttribute("result", 2);
 		    } else if (checknickname == 1) {
 		    	model.addAttribute("result", 3);
-		    } else if (checkemail == 1){
+		    } else if (!"true".equals(emailVerified)){
 		    	model.addAttribute("result", 4);
 		    } else {
 		        int result = logonDao.insertMember(logonDto);
 		        model.addAttribute("result", result);
 		    }
 		        return "member/inputPro";
+		    
 		}
 } 

@@ -4,8 +4,6 @@
   	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="logon.LogonMapper">
  	<insert id="insertMember" parameterType="logon.LogonDataBean">
- 		INSERT INTO members (userId, passwd, nickname, email, auth,  block_id)
-		VALUES (#{userId}, #{passwd}, #{nickname}, #{email, jdbcType=VARCHAR}, 'ROLE_MEMBER', '0')
  		INSERT INTO members (userId, passwd, nickname, auth, email, block_id)
 		VALUES (#{userId}, #{passwd}, #{nickname},'ROLE_MEMBER' ,#{email, jdbcType=VARCHAR}, '0')
  	</insert>
@@ -27,7 +25,7 @@
  	</delete>
  	
  	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
- 		select * from members where userId=#{userId}	
+ 		select * from members where userId = #{userId}	
  	</select>
  	
  	<update id="modifyMember" parameterType="logon.LogonDataBean">
@@ -36,20 +34,29 @@
  		where userId=#{userId}
  	</update>
  	
- 	<resultMap id="MemberMap" type="security.Members">
-	    <result property="userId" column="user_id" />
-	    <result property="passwd" column="passwd" />
-	    <result property="nickname" column="nickname" />
-	    <result property="email" column="email" />
-	    <result property="auth" column="auth" />
-	    <result property="createdAt" column="created_at" />
-	</resultMap>
- 	<select id="findByUserId" parameterType="string" resultMap="MemberMap"> 
- 		SELECT * FROM members WHERE userId = #{userId} 
+	<select id="findId" parameterType="String" resultType="String">
+ 		select userId from members where email = #{email}	
  	</select>
+ 	
+ 		<select id="findPasswd" parameterType="String" resultType="String">
+ 		select passwd from members where userId = #{userId}	
+ 	</select>
+ 	
+	<update id="changePasswd" parameterType="logon.LogonDataBean">
+ 		update members set passwd=#{passwd}
+ 		where userId=#{userId}
+ </update>
  	
  </mapper>
  
  
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
