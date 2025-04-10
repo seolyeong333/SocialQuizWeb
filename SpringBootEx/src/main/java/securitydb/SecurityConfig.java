@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -43,12 +44,13 @@ public class SecurityConfig {
 	
 	@Bean
 	public SecurityFilterChain filterChain( HttpSecurity http ) throws Exception {		
+		
 		http.csrf(
 			AbstractHttpConfigurer::disable
 		).authorizeHttpRequests(
 			authz -> authz.requestMatchers( "/logon/**", "/input/**", "/security/**","main").permitAll()
 					.requestMatchers( "/member/**").hasRole( "MEMBER" )
-					//.requestMatchers( "/admin/**" ).hasRole( "ADMIN" )
+					.requestMatchers( "/admin/**" ).hasRole( "ADMIN" )
 					.anyRequest().authenticated()
 		).httpBasic(
 			Customizer.withDefaults()
@@ -56,7 +58,8 @@ public class SecurityConfig {
 			f -> f.loginPage( "/logon" )
 				.usernameParameter( "userId" )
 				.passwordParameter( "passwd" )
-			    .defaultSuccessUrl( "/main", true )
+			    .successHandler(new SetLoginPage())
+				//.defaultSuccessUrl( "/main", true )
 		).logout(
 			f -> f.logoutUrl( "/logout" )
 				.invalidateHttpSession( true )				// 세션무효화
