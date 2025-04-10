@@ -6,8 +6,13 @@
  <mapper namespace="logon.MemberMapper">
  
  	<insert id="insertMember" parameterType="logon.LogonDataBean">
+<<<<<<< HEAD
  		INSERT INTO members (user_id, passwd, nickname, email, auth,  block_id)
 		VALUES (#{userId}, #{passwd}, #{nickname}, #{email, jdbcType=VARCHAR}, 'ROLE_MEMBER', '0')
+=======
+ 		INSERT INTO members (userId, passwd, nickname, auth, email, block_id)
+		VALUES (#{userId}, #{passwd}, #{nickname},'ROLE_MEMBER' ,#{email, jdbcType=VARCHAR}, '0')
+>>>>>>> 94559a698e65f1ec2f19c305832979a4fe60f9d7
  	</insert>
  	
  	<select id="check" parameterType="String" resultType="int">
@@ -27,7 +32,11 @@
  	</delete>
  	
  	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
+<<<<<<< HEAD
  		select * from members where user_id=#{userId}	
+=======
+ 		select * from members where userId = #{userId}	
+>>>>>>> 94559a698e65f1ec2f19c305832979a4fe60f9d7
  	</select>
  	
  	<update id="modifyMember" parameterType="logon.LogonDataBean">
@@ -36,6 +45,7 @@
  		where user_id=#{userId}
  	</update>
  	
+<<<<<<< HEAD
  	<resultMap id="MemberMap" type="security.Members">
 	    <result property="userId" column="user_id" />
 	    <result property="passwd" column="passwd" />
@@ -46,8 +56,23 @@
 	</resultMap>
  	<select id="findByUserId" parameterType="string" resultMap="MemberMap"> 
  		SELECT * FROM members WHERE user_id = #{userId} 
+=======
+	<select id="findId" parameterType="String" resultType="String">
+ 		select userId from members where email = #{email}	
+>>>>>>> 94559a698e65f1ec2f19c305832979a4fe60f9d7
  	</select>
  	
+ 		<select id="findPasswd" parameterType="String" resultType="String">
+ 		select passwd from members where userId = #{userId}	
+ 	</select>
+ 	
+	<update id="changePasswd" parameterType="logon.LogonDataBean">
+ 		update members set passwd=#{passwd}
+ 		where userId=#{userId}
+ </update>
+ 	<select id="findByUserId" parameterType="String" resultType="String"> 
+ 	SELECT auth FROM members WHERE userId=#{userId} 
+ 	</select>
  </mapper>
  
  
@@ -57,4 +82,10 @@
  
  
  
+<<<<<<< HEAD
+=======
+ 
+ 
+ 
+>>>>>>> 94559a698e65f1ec2f19c305832979a4fe60f9d7
  
