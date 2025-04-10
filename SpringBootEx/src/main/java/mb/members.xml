@@ -46,7 +46,9 @@
  		update members set passwd=#{passwd}
  		where userId=#{userId}
  </update>
- 	
+ 	<select id="findByUserId" parameterType="String" resultType="String"> 
+ 	SELECT auth FROM members WHERE userId=#{userId} 
+ 	</select>
  </mapper>
  
  

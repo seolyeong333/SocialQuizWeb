@@ -15,4 +15,5 @@ public interface LogonMapper {
 	public String findId(String email);
 	public String findPasswd(String userId);
 	public int changePasswd(LogonDataBean logonDto);
+	public String findByUserId(String userId);
 }

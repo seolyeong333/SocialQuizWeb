@@ -21,7 +21,7 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li><a href="#logonmodify" class="nav-link" onclick="loadPage(event, 'logonmodify')">회원정보수정</a></li>
       <li><a href="#logondelete" class="nav-link" onclick="loadPage(event, 'logondelete')">회원탈퇴</a></li>
-      <li><a href="#logonrank" class="nav-link" onclick="loadPage(event, 'sendmail')">이메일인증	</a></li>
+      <li><a href="#socketchat" class="nav-link" onclick="loadPage(event, 'chatmain')">이메일인증	</a></li>
       <li><a href="#qnawrite" class="nav-link" onclick="loadPage(event, 'qnawrite')">1:1문의</a></li>
       <li><a href="#qnamylist" class="nav-link" onclick="loadPage(event, 'qnamylist')">1:1문의내역</a></li>
     </ul>

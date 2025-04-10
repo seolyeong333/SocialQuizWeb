@@ -71,6 +71,10 @@ public class LogonDBBean {
 	public int changePasswd( LogonDataBean logonDto ) {
 		return logonMapper.changePasswd(logonDto);
 	}
+	
+	public String findByUserId(String userId) {
+		return logonMapper.findByUserId(userId);
+	}
 	// class
 }
 
