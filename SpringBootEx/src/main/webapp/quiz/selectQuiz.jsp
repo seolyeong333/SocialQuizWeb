@@ -28,7 +28,7 @@
   </div>
 </div>
 <div class="container mt-3">
-  <div class="mt-4 p-5 bg-primary text-white rounded">
+  <div class="mt-4 p-5 bg-primary text-white rounded" onclick="location='apiliar'">
     <h2>라이어 게임</h2>
     <p> (4인용) 제시어를 받지 못한 자를 찾아라!</p> 
   </div>
