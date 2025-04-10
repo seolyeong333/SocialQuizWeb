@@ -20,14 +20,3 @@
 	<input class="inputbutton" type="button" value="Sign in" onclick="location='logonlogin'">
 </form>
 
-
-
-
-
-
-<<<<<<< HEAD:SpringBootEx/src/main/webapp/security/input.jsp
-
-
-
-=======
->>>>>>> 94559a698e65f1ec2f19c305832979a4fe60f9d7:SpringBootEx/src/main/webapp/member/inputForm.jsp

@@ -65,8 +65,6 @@
 
   </body>
   </html>
-=======
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -89,4 +87,3 @@
     </form>
 </body>
 </html>
->>>>>>> 94559a698e65f1ec2f19c305832979a4fe60f9d7

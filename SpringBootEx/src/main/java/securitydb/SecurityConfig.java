@@ -36,7 +36,7 @@ public class SecurityConfig {
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return web -> web.ignoring()
-				.requestMatchers( "/static/board/**", "/static/logon/**", "/resources/**" );
+				.requestMatchers( "/static/board/**", "/static/logon/**", "/resources/**");
 	}
 	
 	@Bean
@@ -45,7 +45,7 @@ public class SecurityConfig {
 		http.csrf(
 			AbstractHttpConfigurer::disable
 		).authorizeHttpRequests(
-			authz -> authz.requestMatchers( "/logon/**", "/input/**", "/security/**","main").permitAll()
+			authz -> authz.requestMatchers( "/logon/**", "/input/**", "/security/**").permitAll()
 					.requestMatchers( "/member/**").hasRole( "MEMBER" )
 					.requestMatchers( "/admin/**" ).hasRole( "ADMIN" )
 					.anyRequest().authenticated()
