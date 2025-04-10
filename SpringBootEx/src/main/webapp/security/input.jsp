@@ -5,7 +5,7 @@
 <script type="text/javascript" src="${project}script_member.js"></script>    
 
 
-<form class="form" method="post" name ="inputform" action="logoninput">
+<form class="form" method="post" name ="inputform" action="/input">
 	<h2 class="form_title">${page_input}</h2>
 	<input type="text" placeholder="ID" class="input" name="userId" /> 
 	<input type="password" placeholder="Password" class="input"name="passwd" /> 
@@ -15,7 +15,6 @@
  	<input class="inputbutton" type="submit" value="Sign up" name="sub_btn"> 
 	<input class="inputbutton" type="button" value="Sign in" onclick="location='logonlogin'">
 </form>
-
 
 
 

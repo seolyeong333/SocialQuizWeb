@@ -48,15 +48,15 @@
 	    	<form>
 	    
 	   <c:if test="${memId eq null}">
-	    	<button type="button" class="btn btn-outline-dark" onclick="location='logonlogin'">로그인</button>
-	 	    <button type="button" class="btn btn-outline-dark" onclick="location='logoninput'">회원가입</button>
+	    	<button type="button" class="btn btn-outline-dark" onclick="location='logon'">로그인</button>
+	 	    <button type="button" class="btn btn-outline-dark" onclick="location='input'">회원가입</button>
 	    	&nbsp;		
 		</c:if> 	
 	    	
 	    	
 	    	
     	<c:if test="${memId ne null}">
-	    	<button type="button" class="btn btn-outline-dark" onclick="location='logonlogout'">로그아웃</button>
+	    	<button type="button" class="btn btn-outline-dark" onclick="location='logout'">로그아웃</button>
 			<button type="button" class="btn btn-outline-dark" onclick="location='logonpage'">마이페이지</button>
 			&nbsp;	
 		</c:if>
@@ -80,7 +80,7 @@
 		<div class="div4" name="loginSession">
 <c:if test="${memId eq null}">
 	<p class="d-inline-flex gap-1">
-			  <button type="button" class="btn btn-primary" data-bs-toggle="button" onclick="location='logonlogin'">
+			  <button type="button" class="btn btn-primary" data-bs-toggle="button" onclick="location='logon'">
 			  	로그인
 				  	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
 					  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>

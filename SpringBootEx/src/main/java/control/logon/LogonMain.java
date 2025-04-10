@@ -13,6 +13,7 @@ public class LogonMain {
 	public String logonMain( @SessionAttribute( required=false ) String memId, Model model ) 
 		throws Exception {		
 		model.addAttribute( "memId", memId );
+		System.out.println("logonmain들어옴");
 		return "member/main";
 	}
 }

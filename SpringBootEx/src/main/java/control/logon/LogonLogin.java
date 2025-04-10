@@ -28,7 +28,7 @@ public class LogonLogin {
 		return "member/loginForm";
 	}	
 	
-	@PostMapping
+	/*@PostMapping
 	public String loginPro( @RequestParam String userId, @RequestParam String passwd,
 		Model model, HttpSession session ) throws Exception {		
 		int result = logonDao.check( userId, passwd );
@@ -36,5 +36,5 @@ public class LogonLogin {
 			session.setAttribute( "memId", userId );		
 		model.addAttribute( "result", result );				
 		return "member/loginPro";
-	}
+	}*/
 }
