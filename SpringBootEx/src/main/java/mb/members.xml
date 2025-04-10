@@ -36,7 +36,7 @@
  		where user_id=#{userId}
  	</update>
  	
- 	<resultMap id="MemberMap" type="logon.Members">
+ 	<resultMap id="MemberMap" type="security.Members">
 	    <result property="userId" column="user_id" />
 	    <result property="passwd" column="passwd" />
 	    <result property="nickname" column="nickname" />

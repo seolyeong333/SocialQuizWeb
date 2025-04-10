@@ -27,8 +27,7 @@ public class LogonInput {
 	@PostMapping
 	public String inputPro( @ModelAttribute LogonDataBean logonDto, @RequestParam String userId,
 			@RequestParam String nickname, @RequestParam String email, Model model ) throws Exception {
-		
-		logonDto.setEmail( email );
+		 
 		 int checkid = logonDao.check(userId);
 		 int checknickname = logonDao.checkNickname(nickname);
 		 int checkemail = logonDao.checkEmail(email);

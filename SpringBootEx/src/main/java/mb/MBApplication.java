@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan( basePackages={ "mb", "logon", "board","qna","control.quiz",
+@ComponentScan( basePackages={ "mb", "logon", "board","qna", "game", "rank", "control.quiz", "control.rank",
 		"control.oxgame","control.wordgame", "control.logon", 
 		"control.board","control.qna", "websocket" } )
-@MapperScan( basePackages= { "logon", "board", "qna", "quiz.oxgame","quiz.wordGame" } )
+@MapperScan( basePackages= { "logon", "board", "qna","game", "rank", "quiz.oxgame","quiz.wordGame" } )
 public class MBApplication {
 	public static void main(String[] args) {
 		SpringApplication.run( MBApplication.class );		
@@ -19,3 +19,4 @@ public class MBApplication {
 
 // localhost:8080/logonmain
 // localhost:8080/boardlist
+ 	

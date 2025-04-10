@@ -34,7 +34,7 @@ public class LogonLogin {
 		System.out.println("안녕하세요");
 		int result = logonDao.check( userId, passwd );
 		if( result == 1 )
-			session.setAttribute( "memId", userId );		
+			session.setAttribute( "memId", userId );	
 		model.addAttribute( "result", result );				
 		return "member/loginPro";
 	}
