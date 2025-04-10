@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="logon.LogonMapper">
+ 	<insert id="insertMember" parameterType="logon.LogonDataBean">
+ 		INSERT INTO members (userId, passwd, nickname, auth, email,  block_id)
+		VALUES (#{userId}, #{passwd}, #{nickname},'ROLE_MEMBER' ,#{email, jdbcType=VARCHAR}, '0')
+ 	</insert>
+ 	
+ 	<select id="check" parameterType="String" resultType="int">
+ 		select count(*) from members where userId=#{userId}
+ 	</select>
+ 	
+ 	<select id="checkNickname" parameterType="String" resultType="int">
+ 		select count(*) from members where nickname=#{nickname}
+ 	</select>
+ 	
+ 	<select id="checkEmail" parameterType="String" resultType="int">
+ 		select count(*) from members where email=#{email}
+ 	</select>
+ 	
+ 	<delete id="deleteMember" parameterType="String">
+ 		delete from members where userId=#{userId}
+ 	</delete>
+ 	
+ 	<select id="getMember" parameterType="String" resultType="logon.LogonDataBean">
+ 		select * from members where userId=#{userId}	
+ 	</select>
+ 	
+ 	<update id="modifyMember" parameterType="logon.LogonDataBean">
+ 		update members set passwd=#{passwd}, 
+ 		email=#{email, jdbcType=VARCHAR}
+ 		where userId=#{userId}
+ 	</update>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

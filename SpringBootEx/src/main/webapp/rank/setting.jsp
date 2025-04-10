@@ -5,6 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var="project" value="/quiz/"/>
+<c:set var="page_rank" value =" 랭 크 "/>
 
-<c:set var="page_quiz" value ="게임 선택 페이지"/>
+<c:set var="err_input" value = "DB 저장 안됨"/>
