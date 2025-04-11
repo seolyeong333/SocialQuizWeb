@@ -1,4 +1,4 @@
-package control.logon;
+package mail;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +22,7 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import logon.LogonDBBean;
+import securitydb.UserMapper;
 
 @Service
 @Controller
@@ -29,7 +30,7 @@ import logon.LogonDBBean;
 @RequestMapping
 public class sendEmail {
 	@Resource
-	private LogonDBBean logonDao;
+	private UserMapper userMapper;
 	
    @Autowired
 	private JavaMailSender mailSender;
@@ -48,7 +49,8 @@ public class sendEmail {
 	@ResponseBody
 	public String sendEmailPro( Model model, @RequestParam String email, @RequestParam(required = false) String emailVerified, 
 			HttpSession session, HttpServletResponse response) {
-		int checkemail = logonDao.checkEmail(email);
+		int checkemail = userMapper.checkEmail(email);
+		
 		if ("false".equals(emailVerified) && checkemail == 1) {
 	        return "duplicate"; // 이메일 중복됨
 	    }

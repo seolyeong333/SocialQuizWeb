@@ -180,6 +180,7 @@ function sendEmailAuthCode() {
     const email = form['email'].value.trim();
     const authInput = form['emailAuth']?.value?.trim(); // 인증번호 입력 필드가 있을 경우
 
+	alert(email);
     if (!email) {
         alert('이메일을 입력해주세요!');
         return;

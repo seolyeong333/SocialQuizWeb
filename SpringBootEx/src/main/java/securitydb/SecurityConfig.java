@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -36,7 +37,7 @@ public class SecurityConfig {
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return web -> web.ignoring()
-				.requestMatchers( "/static/board/**", "/static/logon/**", "/resources/**");
+				.requestMatchers("/static/board/**", "/static/logon/**", "/resources/**");
 	}
 	
 	@Bean
@@ -45,7 +46,9 @@ public class SecurityConfig {
 		http.csrf(
 			AbstractHttpConfigurer::disable
 		).authorizeHttpRequests(
-			authz -> authz.requestMatchers( "/logon/**", "/input/**", "/security/**", "main", "sendmail", "/mail/**").permitAll()
+			authz -> authz.requestMatchers("/fail", "/signup/**","/home/**", 
+					"/login/**", "/logon/**", "/input/**", "/security/**", 
+					"main", "/sendmail/**", "/mail/**").permitAll()
 					.requestMatchers( "/member/**").hasRole( "MEMBER" )
 					.requestMatchers( "/admin/**" ).hasRole( "ADMIN" )
 					.anyRequest().authenticated()
@@ -55,6 +58,7 @@ public class SecurityConfig {
 			f -> f.loginPage( "/logon" )
 				.usernameParameter( "userId" )
 				.passwordParameter( "passwd" )
+				.failureUrl("/fail")
 			    .successHandler(new SetLoginPage())
 		).logout(
 			f -> f.logoutUrl( "/logout" )
@@ -62,6 +66,7 @@ public class SecurityConfig {
 				.deleteCookies( "JSESSIONID" )				// 쿠키 삭제
 				.logoutSuccessUrl( "/logon" )
 		);
+		
 		return http.build();
 	}
 }

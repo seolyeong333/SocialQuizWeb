@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp"%>
+<%@ include file="../setting.jsp"%>
 <script type="text/javascript" src="${project}script_member.js">
 
 </script>    
@@ -22,22 +22,28 @@
 	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="#">관리자${page_main}</a>
+	          <a class="nav-link active" aria-current="page" href="#">${page_main}</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">O/X게임 문제 설정</a>
+	          <a class="nav-link" href="quiz/startox">O/X게임</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">문의게시판</a>
+	          <a class="nav-link" href="quiz/startword">끝말잇기</a>
 	        </li>
-			<li class="nav-item">
-			          <a class="nav-link" href="#">공지사항</a>
-			        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="#">랭킹</a>
+	        </li>
+	        
 	       </ul>
 	      <a class="navbar-brand" href="#">	      
 		  	<img src="${project}images/socialQuiz.png" alt="img" class="center-img">
 		  </a>
 
+	      &nbsp;&nbsp;
+		      <form class="d-flex" role="search">
+		        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+		        <button class="btn btn-outline-success" type="submit">Search</button>
+		      </form>
 	    </div>
 	    &nbsp;&nbsp;
 	    <div>
@@ -45,6 +51,7 @@
 	    
 	   <c:if test="${memId eq null}">
 	    	<button type="button" class="btn btn-outline-dark" onclick="location='logon'">로그인</button>
+	 	    <button type="button" class="btn btn-outline-dark" onclick="location='signup'">회원가입</button>
 	    	&nbsp;		
 		</c:if> 	
 	    	
@@ -52,6 +59,7 @@
 	    	
     	<c:if test="${memId ne null}">
 	    	<button type="button" class="btn btn-outline-dark" onclick="location='logout'">로그아웃</button>
+			<button type="button" class="btn btn-outline-dark" onclick="location='logonpage'">마이페이지</button>
 			&nbsp;	
 		</c:if>
 	    	
@@ -63,7 +71,10 @@
 	
 	<div class="container">
 		<div class="div1"> </div>
-
+		<div class="div2">
+		<a href="quiz/selectquiz" >추천게임 </a> 
+		
+		</div>
 		<img src="${project}images/teamFruit.jpg" alt="img" class="image" >
 		<div class="div3"> 
 			<h1 class="home"> 실시간 순위 </h1>  			           
@@ -83,6 +94,21 @@
 
 <c:if test="${memId ne null}">		
 </c:if>
+		</div>
+		<div class="div5">
+		<a href="boardlist">
+			<span > 소식 </span>
+		</a>
+		</div>
+		<div class="div6">
+			<a href="qnalist">
+				<span > 1대1 게시판 </span>
+			</a>
+		</div>
+		<div class="div7">
+		</div>
+		
+	</div>
 
 
 

@@ -15,7 +15,7 @@
 <div class="container-flex">
 
   <div class="sidebar">
-    <a href="logonmain" class="fs-4">메인페이지</a>
+    <a href="home" class="fs-4">메인페이지</a>
     
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">

@@ -18,7 +18,7 @@ public class SetLoginPage extends SimpleUrlAuthenticationSuccessHandler{
 			response.sendRedirect("/admin");
 		}
 		else
-			response.sendRedirect("/main");
+			response.sendRedirect("/home");
 	}
 	
 }

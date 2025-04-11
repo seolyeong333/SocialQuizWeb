@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp"%>
+<%@ include file="../setting.jsp"%>
 <link type="text/css" rel="stylesheet" href="${project}inputform.css">
 <script type="text/javascript" src="${project}script_member.js"></script>    
 
 
-<form class="form" method="post" name ="inputform" action="/input">
+<form class="form" method="post" name ="inputform" action="/signup">
 	<h2 class="form_title">${page_input}</h2>
 	<input type="hidden" name="emailVerified" id="emailVerified" value="false">
 
@@ -17,6 +17,6 @@
 	<input type="text" placeholder="Email Auth" class="input" name="emailAuth" />
  	<input class="inputbutton" type="button" value="이메일 인증" onclick="sendEmailAuthCode()" id="emailAuthBtn">
  	<input class="inputbutton" type="submit" value="Sign up" name="sub_btn"> 
-	<input class="inputbutton" type="button" value="Sign in" onclick="location='logonlogin'">
+	<input class="inputbutton" type="button" value="Sign in" onclick="location='logon'">
 </form>
 
