@@ -27,7 +27,8 @@ public class LogonController {
 	    }
 	
 	@GetMapping
-	public String form( Model model, HttpServletRequest request ) {
+	public String form( Model model, HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("체크여부:" +request.getParameter("rememberId"));
 		String rememberedId = "";									// 여기 get매핑은 링크로 이동하는 곳이니까 여기에다가  
 	    Cookie[] cookies = request.getCookies();				// 쿠키 통으로 가져옴
 	    if (cookies != null) {
@@ -38,32 +39,11 @@ public class LogonController {
 	            }
 	        }
 	    }
-	    model.addAttribute("rememberedId", rememberedId);		// 값에다가 넣고 rememberedId		
-		System.out.println("[/logon] rememberedId : "+rememberedId);
+
+	    model.addAttribute("rememberedId", rememberedId);		// 값에다가 넣고 rememberedId	
+		System.out.println("[/logon] rememberId : "+request.getParameter("rememberId"));
+		
+		
 		return "login/logon";
 	}
-	
-	/*@PostMapping
-	public String loginPro( @RequestParam String userId, @RequestParam String passwd,
-			 @RequestParam(required = false) String rememberId, Model model,		// required = false가 꼭 안가져와도 된다는거임 
-			 HttpSession session, HttpServletResponse response) throws Exception {		
-		int result = logonDao.check( userId, passwd );
-		if( result == 1 ) {
-			
-			session.setAttribute( "memId", userId );	
-			if (rememberId != null) {	 
-	            Cookie cookie = new Cookie("rememberId", userId);	// 아이디 저장 체크하면 아이디
-	            cookie.setMaxAge(60 * 60 * 24 * 30); 				// 저장시간 보통 초단위라서 1분 1시간 24시간 30일 요느낌임
-	            cookie.setPath("/"); 								// 아무데서나 가져가기 가능
-	            response.addCookie(cookie);	// cookie는 model로 못해서 response로 한대요 
-			} else { 
-	            Cookie cookie = new Cookie("rememberId", null);
-	            cookie.setMaxAge(0);								// 아이디 저장 안했으면 이전 쿠키 지워야 되니까 일케함 
-	            cookie.setPath("/");
-	            response.addCookie(cookie);	
-	        }
-		}
-		model.addAttribute( "result", result );				
-		return "login/loginPro";
-	}*/
 }
