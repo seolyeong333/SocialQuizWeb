@@ -1,4 +1,4 @@
-package control.logon;
+package test;
 
 import mb.CreateBeans;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 import logon.LogonDBBean;
 
 @Controller
-@RequestMapping( "/logonlogin")
+//@RequestMapping( "/logonlogin")
 public class LogonLogin {
 
     private final CreateBeans createBeans;

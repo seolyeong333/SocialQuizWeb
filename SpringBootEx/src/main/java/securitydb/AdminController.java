@@ -15,6 +15,6 @@ public class AdminController {
 		String memId = SecurityContextHolder.getContext().getAuthentication().getName();
 		session.setAttribute("memId", memId);
 		model.addAttribute( "result", "관리자페이지 입니다." );
-		return "security/admin";
+		return "admin/admin";
 	}	
 }

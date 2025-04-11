@@ -7,26 +7,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import jakarta.annotation.Resource;
 @Controller
-@RequestMapping( "/input" )
-public class InputController {
+@RequestMapping("/signup")
+public class SignupController {
 	@Resource
-	UserMapper mapper;	
+	UserMapper userMapper;	
 		
 	@Resource
 	private PasswordEncoder passwordEncoder;
 				
 	@GetMapping
 	public String form( Model model ) {		
-		return "security/input";
+		return "login/signup";
 	}	
 	
 	@PostMapping
 	public String pro( @ModelAttribute User user ) {
 		user.setPasswd( passwordEncoder.encode( user.getPasswd() ) );
 		user.setAuth( "ROLE_" + user.getAuth() );
-		mapper.insertUser( user );
-		return "security/logon";
+		userMapper.insertUser( user );
+		return "login/logon";
 	}	
 }

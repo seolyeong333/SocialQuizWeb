@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp"%>
+	<%@ include file="../setting.jsp"%>
 <link type="text/css" rel="stylesheet" href="${project}loginform.css">
 <script type="text/javascript" src="${project}script_member.js"></script>    
 
@@ -11,7 +11,7 @@
 			<table>
 				<tr>
 					<td> <input class="input" type="text" name="userId" 
-					placeholder="ID" maxlength="15" autofocus> </td>
+					placeholder="ID" value="${rememberedId}" maxlength="15" autofocus> </td>
 				</tr>
 				<tr>
 					<td> <input class="input" type="password" name="passwd" 
@@ -21,7 +21,13 @@
 		 <div>
 		 	<table>
 				<tr>	
-					<td><input type="checkbox" class="memory"> 아이디 저장</td>
+					<td>
+					  <label>
+					    <input type="checkbox" name="rememberId" 
+					      <c:if test="${not empty rememberedId}">checked</c:if> /> 아이디 저장
+					  </label>
+					</td>
+
 			 	</tr>
 			</table>
 		</div>
@@ -35,8 +41,8 @@
 		 		
 			 	<p>
 			 		<tr align="center">
-			 			<td> 아이디 찾기 </td>
-			 			<td> 비밀번호 찾기 </td>
+			 			<a href="logonfindid" class="no-underline">아이디 찾기 </a> 
+			 			<a href="logonfindpwd" class="no-underline"> 비밀번호 찾기 </a>
 			 		</tr>
 			 	</p>
 			 	<tr align="center">
@@ -46,7 +52,7 @@
 		 			<tr align="center">
 			 			<td> 
 			 				<input class="inputbutton" type="button" value="${btn_input}"
-			 				onclick="location='/input'">
+			 				onclick="location='/signup'">
 			 			</td>
 		 		</tr>
 			 	</p>
@@ -54,7 +60,7 @@
 		 			<tr align="center">
 			 			<td> 
 			 				<input class="inputbutton" type="button" value="${btn_main}"
-			 				onclick="location='/main'">
+			 				onclick="location='/home'">
 			 			</td>
 		 		</tr>
 			 	</p>
